@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript">
+        function penambahan() {
+            a1 = eval(form.angka1.value);
+            a2 = eval(form.angka2.value);
+            a3 = a1 + a2
+            form.total.value = a3;
+        }
+
+        function pengurangan() {
+            a1 = eval(form.angka1.value);
+            a2 = eval(form.angka2.value);
+            a3 = a1 - a2
+            form.total.value = a3;
+        }
+
+        function pengkalian() {
+            a1 = eval(form.angka1.value);
+            a2 = eval(form.angka2.value);
+            a3 = a1 * a2
+            form.total.value = a3;
+        }
+
+        function pembagian() {
+            a1 = eval(form.angka1.value);
+            a2 = eval(form.angka2.value);
+            a3 = a1 / a2
+            form.total.value = a3;
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <form name="form">
+        <p>Angka 1</p>
+        <input type="number" id="angka1">
+        <br>
+        <p>Angka 2</p>
+        <input type="number" id="angka2">
+        <br><br>
+
+        <input type="button" id="tambah" name="submit" onclick="penambahan()" value="+">
+        <input type="button" id="kurang" name="submit" onclick="pengurangan()" value="-">
+        <input type="button" id="kali" name="submit" onclick="pengkalian()" value="x">
+        <input type="button" id="bagi" name="submit" onclick="pembagian()" value=":">
+        <br>
+        <p>Hasil</p>
+        <input type="text" name="total" value=""/>
+    </form>
+</body>
+
+</html>
