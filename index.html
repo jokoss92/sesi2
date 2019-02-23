@@ -1,59 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <head>
-    <script type="text/javascript">
-        function penambahan() {
-            a1 = eval(form.angka1.value);
-            a2 = eval(form.angka2.value);
-            a3 = a1 + a2
-            form.total.value = a3;
-        }
 
-        function pengurangan() {
-            a1 = eval(form.angka1.value);
-            a2 = eval(form.angka2.value);
-            a3 = a1 - a2
-            form.total.value = a3;
-        }
-
-        function pengkalian() {
-            a1 = eval(form.angka1.value);
-            a2 = eval(form.angka2.value);
-            a3 = a1 * a2
-            form.total.value = a3;
-        }
-
-        function pembagian() {
-            a1 = eval(form.angka1.value);
-            a2 = eval(form.angka2.value);
-            a3 = a1 / a2
-            form.total.value = a3;
-        }
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculator</title>
 </head>
 
 <body>
     <form name="form">
         <p>Angka 1</p>
-        <input type="number" id="angka1">
+        <input type="number" id="input1">
         <br>
         <p>Angka 2</p>
-        <input type="number" id="angka2">
+        <input type="number" id="input2">
         <br><br>
 
         <input type="button" id="tambah" name="submit" onclick="penambahan()" value="+">
         <input type="button" id="kurang" name="submit" onclick="pengurangan()" value="-">
         <input type="button" id="kali" name="submit" onclick="pengkalian()" value="x">
         <input type="button" id="bagi" name="submit" onclick="pembagian()" value=":">
+        <input type="button" id="reset" name="submit" onclick="ulang()" value="C">
         <br>
-        <p>Hasil</p>
-        <input type="text" name="total" value=""/>
+        <p id="hasil">Hasil</p>
+
     </form>
+    <script type="text/javascript">
+        function cek() {
+            var angka1 = document.getElementById("input1").value
+            var angka2 = document.getElementById("input2").value
+            if (angka1 == "" || angka2 == "") {
+                alert("Data kosong atau tidak sesuai");
+                exit;
+            }
+        }
+
+        function penambahan() {
+            var angka1 = document.getElementById("input1").value
+            var angka2 = document.getElementById("input2").value
+            if (angka1 && angka2) {
+                document.getElementById("hasil").textContent = parseInt(angka1) + parseInt(angka2)
+            } else {
+                cek();
+            }
+        }
+
+        function pengurangan() {
+            var angka1 = document.getElementById("input1").value
+            var angka2 = document.getElementById("input2").value
+            if (angka1 && angka2) {
+                document.getElementById("hasil").textContent = parseInt(angka1) - parseInt(angka2)
+            } else {
+                cek();
+            }
+        }
+
+        function pengkalian() {
+            var angka1 = document.getElementById("input1").value
+            var angka2 = document.getElementById("input2").value
+            if (angka1 && angka2) {
+                document.getElementById("hasil").textContent = parseInt(angka1) * parseInt(angka2)
+            } else {
+                cek();
+            }
+        }
+
+        function pembagian() {
+            var angka1 = document.getElementById("input1").value
+            var angka2 = document.getElementById("input2").value
+            if (angka1 && angka2) {
+                document.getElementById("hasil").textContent = parseInt(angka1) / parseInt(angka2)
+            } else {
+                cek();
+            }
+        }
+
+        function ulang() {
+            document.getElementById("input1").value = "";
+            document.getElementById("input2").value = "";
+            document.getElementById("hasil").textContent = "Hasil";
+        }
+    </script>
 </body>
 
 </html>
